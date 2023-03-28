@@ -1,0 +1,80 @@
+create table alldata(
+entry int auto_increment,
+data_as_of varchar(20),
+start_date varchar(20),
+end_date varchar(20),
+group_ varchar(20),
+year_ varchar(20),
+month_ varchar(20),
+state_ varchar(20),
+coondition_grooup varchar(100),
+condition__ varchar(100),
+ICD10_codes varchar(20),
+age_grooup varchar(20),
+COVID_19_deaths varchar(20),
+number_of_mentions varchar(20),
+flag_ varchar(20),
+primary key (entry)
+)
+
+
+CREATE TABLE tableName 
+(
+    entry int auto_increment,
+    data_as_of	VARCHAR(512),
+    start_date	VARCHAR(512),
+    end_date	VARCHAR(512),
+    group_	VARCHAR(512),
+    year_	VARCHAR(512),
+    month_	VARCHAR(512),
+    state_	VARCHAR(512),
+    coondition_grooup	VARCHAR(512),
+    condition_	VARCHAR(512),
+    ICD10_codes	VARCHAR(512),
+    age_grooup	VARCHAR(512),
+    COVID_19_deaths	INT,
+    number_of_mentions	INT,
+    flag_	VARCHAR(512)
+    primary key (entry)
+);
+
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '0-24', '1513', '1584', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '25-34', '5729', '5946', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '35-44', '14939', '15555', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '45-54', '37117', '38570', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '55-64', '81806', '84795', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '65-74', '127126', '131098', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '75-84', '135356', '138589', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', '85+', '117521', '119311', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', 'Not state_d', '12', '12', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Influenza and pneumonia', 'J09-J18', 'All Ages', '521119', '535460', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '0-24', '191', '196', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '25-34', '451', '457', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '35-44', '1084', '1109', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '45-54', '3205', '3313', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '55-64', '12383', '13004', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '65-74', '26887', '28262', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '75-84', '34362', '35941', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', '85+', '26441', '27317', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', 'Not state_d', '1', '1', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Chronic lower respiratory diseases', 'J40-J47', 'All Ages', '105005', '109600', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '0-24', '473', '473', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '25-34', '1796', '1796', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '35-44', '4700', '4700', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '45-54', '11417', '11417', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '55-64', '22775', '22775', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '65-74', '29853', '29853', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '75-84', '22514', '22514', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', '85+', '12111', '12111', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', 'Not state_d', '1', '1', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Adult respiratory distress syndrome', 'J80', 'All Ages', '105640', '105640', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '0-24', '1011', '1058', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '25-34', '4002', '4077', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '35-44', '10790', '10982', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '45-54', '28000', '28496', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '55-64', '65235', '66948', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '65-74', '106205', '109964', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '75-84', '115627', '120090', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '85+', '95561', '98460', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', 'Not state_d', '6', '6', '');
+INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', 'All Ages', '426437', '440081');
