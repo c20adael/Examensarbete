@@ -1,0 +1,122 @@
+drop database testdatabase;
+create database testdatabase;
+use testdatabase;
+
+create table tomtenisse(
+namn varchar(20),
+id int(5) ZEROFILL,
+skostorlek int,
+primary key(id)
+)
+engine=InnoDB;
+
+create table mat(
+namn varchar(20),
+smak varchar(20),
+tillverkare varchar(20),
+magilevel int(2),
+primary key(namn)
+)
+engine=InnoDB;
+
+create table underart(
+artid int(1),
+underart varchar(20),
+primary key (artid)
+)
+engine=InnoDB;
+
+create table ren(
+nr int(11),
+namn varchar(20),
+art int,
+stank int(1),
+spannnamn varchar(20),    # här är det en denormalisering då tabellen spann är inlagd i tabellen ren.
+kapasitet int,
+primary key(nr),
+foreign key(art) references underart(artid)
+)
+engine=InnoDB;
+
+create table pren(
+rennr int(11),
+burknr int,
+fabriksnamn varchar(20),
+smak varchar(20),
+primary key (rennr),
+foreign key (rennr) references ren(nr)
+)
+engine=InnoDB;
+create table tren(
+rennr int(11),
+salary int,
+primary key (rennr),
+foreign key (rennr) references ren(nr)
+)
+engine=InnoDB;
+
+create table priscode(      -- Denna tabell är för att skapa en kod på priserna. varje pris kommer att ha en kod.
+rennr int(11),
+prisid int,
+prisnamn varchar(30),
+prisyear int(4),
+primary key(prisid),
+foreign key(rennr) references ren(nr)
+)
+engine=InnoDB; 
+
+create table adress(
+nisseid int(5) ZEROFILL,
+barack int(4),
+bednr int(2),
+primary key(nisseid),
+foreign key(nisseid) references tomtenisse(id)
+)
+engine=InnoDB;
+
+create table salary(
+nisseid int(5) ZEROFILL,
+nuts int(5),
+russin int(5),
+primary key(nisseid),
+foreign key(nisseid) references tomtenisse(id)
+)
+engine=InnoDB;
+
+create table users(
+	username varchar(20),
+    pass varchar(20),
+    primary key(username)
+    )
+engine=InnoDB;
+
+insert into users(username, pass) values ("Bossman", "Boss123");
+
+create index nameindex on tomtenisse(id desc);
+
+insert into tomtenisse (namn, id, skostorlek) values ("Jonas", 00001, 33);
+insert into tomtenisse (namn, id, skostorlek) values ("Bob", 00002, 12);
+insert into tomtenisse (namn, id, skostorlek) values ("Peter", 00003, 67);
+insert into tomtenisse (namn, id, skostorlek) values ("Adam", 00004, 56);
+insert into tomtenisse (namn, id, skostorlek) values ("Yaya", 00005, 34);
+
+
+
+insert into underart(artid, underart) values (1, "Pearyi");
+insert into underart(artid, underart) values (2, "Tarandus");
+insert into underart(artid, underart) values (3, "Buskensis");
+insert into underart(artid, underart) values (4, "Caboti");
+insert into underart(artid, underart) values (5, "Dawsoni");
+insert into underart(artid, underart) values (6, "Sibericus");
+
+insert into ren(nr, namn, stank, spannnamn, kapasitet) values (00000000001, "Blitzen", 1, null, null);
+
+insert into priscode(prisid, prisnamn, prisyear) values (1, "Värsta stanken", 2019);
+insert into priscode(prisid, prisnamn, prisyear) values (2, "snabbaste renen", 2020);
+insert into priscode(prisid, prisnamn, prisyear) values (3, "Koolaste tricket", 2016); 
+
+insert into tren(rennr, salary) values (00000000001, 476);
+
+insert into salary (nisseid, nuts, russin) values (00001, 456, 2003);
+insert into salary (nisseid, nuts, russin) values (00002, 567, 1000);
+insert into salary (nisseid, nuts, russin) values (00003, 133, 5678);
