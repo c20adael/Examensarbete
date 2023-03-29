@@ -78,3 +78,40 @@ INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, 
 INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', '85+', '95561', '98460', '');
 INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', 'Not state_d', '6', '6', '');
 INSERT INTO tableName (data_as_of, start_date, end_date, group_, year_, month_, state_, coondition_grooup, condition_, ICD10_codes, age_grooup, COVID_19_deaths, number_of_mentions, flag_) VALUES ('03/05/2023', '01/01/2020', '03/04/2023', 'By Total', '', '', 'United state_s', 'Respiratory diseases', 'Respiratory failure', 'J96', 'All Ages', '426437', '440081');
+
+
+
+
+
+
+/* fungerande kod i MYSQL för att mata in hela databasens information nedan*/
+
+use testcsv;
+drop table test;
+create table test (
+    data_as_of	VARCHAR(512),
+    start_date	VARCHAR(512),
+    end_date	VARCHAR(512),
+    group_	VARCHAR(512),
+    year_	VARCHAR(512),
+    month_	VARCHAR(512),
+    state_	VARCHAR(512),
+    condition_group	VARCHAR(512),
+    condition_	VARCHAR(512),
+    ICD10_codes	VARCHAR(512),
+    age_Group	VARCHAR(512),
+    COVID_19_deaths	VARCHAR(512),
+    number_of_mentions VARCHAR(512),
+    flag_	VARCHAR(512)
+);
+
+
+Alter table `test` disable keys;
+load data infile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/testfowebconverter.csv'
+into table `test`
+character set utf8mb4 
+fields terminated by ','
+enclosed by '"' 
+lines terminated by '\n'
+IGNORE 1 LINES;
+alter table `test` enable keys;
