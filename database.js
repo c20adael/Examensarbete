@@ -118,23 +118,33 @@ console.log(firstElement)
 var i = 0
 var y = 0
 var arrQ = []
-
+var created_csv = "" 
 function testloop(){
     if( y<data.length){
-        console.time(`query${y}`);
-        var startTime = Date.now()
+        //console.time(`query${y}`);
+        //var startTime = Date.now()
+        const start = performance.now();
+
         var row = data[y]
         var sql= "INSERT INTO test (data_as_of, start_date, end_date, group_, year_, month_, state_, condition_group, condition_, ICD10_codes, age_Group, COVID_19_deaths, number_of_mentions, flag_) VALUES ('"+row[0]+"', '"+row[1]+"', '"+row[2]+"', '"+row[3]+"', '"+row[4]+"', '"+row[5]+"', '"+row[6]+"', '"+row[7]+"', '"+row[8]+"', '"+row[9]+"', '"+row[10]+"', '"+row[11]+"', '"+row[12]+"', '"+row[13]+"')";
         con.query(sql, function (err, result) {
             if (err) throw err;
             console.log("insert "+i+" done");
             i++;
-            var stopTime = Date.now()
-            console.log(stopTime - startTime)
-            arrQ[y] = console.timeEnd(`query${y}`);
+            //var stopTime = Date.now()
+            //console.log(stopTime - startTime)
+            //arrQ[y] = console.timeEnd(`query${y}`);
+            const end = performance.now();
+            const elapsed = end - start;
+            console.log(elapsed)
+            created_csv += elapsed + ", query: " + y + "\n" 
             y++;
             testloop()
         });  
+    }
+    else{
+        fs2.writeFileSync('old_test_data/test-sync', created_csv);
+        con.end()
     }
 }
 
@@ -173,8 +183,7 @@ con.connect(async function (err) {
             console.log(stopTime - startTime)
         });
     }); */
-// con.end()
-fs2.writeFileSync('old_test_data/test-sync', 'Hey there!2');
+// 
 });
 
 /* con.connect(function(err) {
