@@ -143,7 +143,7 @@ function testloop(){
         });  
     }
     else{
-        fs2.writeFileSync('old_test_data/test-sync', created_csv);
+        fs2.writeFileSync('old_test_data/test_data_MYSQL', created_csv);
         con.end()
     }
 }
