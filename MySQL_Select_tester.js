@@ -1,0 +1,62 @@
+var mysql = require('mysql');
+
+// sets up the details for the connection
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "testcsv"
+});
+
+// The selectState function randomly chooses a value from a column in the database and passes it on
+function selectState(){
+    var selectRandomQuery = "SELECT state_ FROM test  ORDER BY RAND ( )  LIMIT 1";
+    con.query(selectRandomQuery, function (err, result){
+        if (err) throw err;
+        console.log("select done");
+        state = result.map(row => row.state_);
+        state = state[0];
+
+        selectQuery(state);
+    })
+}
+
+// The selectQuery function is primed by the previous function that gives it the parameter.
+// It then searches for the rows with said parameter
+function selectQuery(state){
+    const start = performance.now();
+    console.log(state);
+    var selectAllQuery = "SELECT * FROM test WHERE state_ = '"+state+"'";
+    con.query(selectAllQuery, function (err, result){
+        if (err) throw err;
+        //console.log(result);
+        const end = performance.now();
+        const elapsed = end - start;
+        console.log("select "+counter+" done");
+        counter++
+        console.log(elapsed);
+        selectLooper();
+    })
+}
+var counter = 1;
+var loopAmount = 10;
+function selectLooper(){
+    if (loopAmount > 0){
+        selectState();
+        loopAmount--
+    }else{
+        con.end();
+    }
+}
+
+// the main program that connects to the database
+// and runs the selection functions
+con.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected!");
+    var state;
+    
+    selectLooper();
+    
+});
+
