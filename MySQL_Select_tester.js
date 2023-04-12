@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+const fs = require('fs')
 
 // sets up the details for the connection
 var con = mysql.createConnection({
@@ -23,18 +24,23 @@ function selectState(){
 
 // The selectQuery function is primed by the previous function that gives it the parameter.
 // It then searches for the rows with said parameter
+var queryResults = [];
+var csvFile = "";
 function selectQuery(state){
-    const start = performance.now();
     console.log(state);
+    csvFile += state +", ";
+    const start = performance.now();
     var selectAllQuery = "SELECT * FROM test WHERE state_ = '"+state+"'";
     con.query(selectAllQuery, function (err, result){
         if (err) throw err;
-        //console.log(result);
         const end = performance.now();
         const elapsed = end - start;
+        csvFile += elapsed + ", "+ result.length +", \n";
+        queryResults[counter] = result;
         console.log("select "+counter+" done");
-        counter++
+        counter++;
         console.log(elapsed);
+        console.log(result.length);
         selectLooper();
     })
 }
@@ -45,6 +51,7 @@ function selectLooper(){
         selectState();
         loopAmount--
     }else{
+        fs.writeFileSync('old_test_data/test_data_MySQL_SELECT', csvFile);
         con.end();
     }
 }
@@ -55,8 +62,6 @@ con.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
     var state;
-    
     selectLooper();
-    
 });
 

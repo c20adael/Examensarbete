@@ -186,3 +186,49 @@ enclosed by '"'
 lines terminated by '\n'
 IGNORE 1 LINES;
 alter table `test` enable keys;
+
+
+var queryResults = [];
+var foundRow = [];
+function selectQuery(state){
+    console.log(state);
+    const start = performance.now();
+    var selectAllQuery = "SELECT * FROM test WHERE state_ = '"+state+"'";
+    con.query(selectAllQuery, function (err, result){
+        if (err) throw err;
+        //console.log(result);
+        const end = performance.now();
+        const elapsed = end - start;
+        //
+        result.forEach(row => {
+            const values = [];
+            for (const key in row) {
+              if (row.hasOwnProperty(key)) {
+                values.push(row[key]);
+              }
+            }
+            foundRow.push(values);
+        });
+        //
+        queryResults[counter] = result;
+        console.log("select "+counter+" done");
+        counter++;
+        console.log(elapsed);
+        selectLooper();
+    })
+}
+
+
+
+
+let value;
+        let count = 0;
+
+        for (const key in foundRow[1]) {
+            if (count === 6) { // Decides witch slot in object to access
+            value = foundRow[1][key];
+            break;
+            }
+        count++;
+        }
+        console.log(value);
