@@ -45,7 +45,7 @@ function selectQuery(state){
     })
 }
 var counter = 1;
-var loopAmount = 10;
+var loopAmount = 1000;
 function selectLooper(){
     if (loopAmount > 0){
         selectState();
