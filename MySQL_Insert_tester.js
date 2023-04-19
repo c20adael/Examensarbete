@@ -15,7 +15,7 @@ const fs2 = require('fs')
 // reads a file
 const csvString = fs.readFileSync('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/LessRowsTest.csv', 'utf8');
 
-// formattingf the file in to two aarrays. removing the first line in the file
+// formatting the file in to two aarrays. removing the first line in the file
 const rows = csvString.split('\n');
 const data = rows.map(function (row) {
   return row.split(',');
@@ -29,7 +29,7 @@ var i = 0
 var y = 0
 var arrQ = []
 var created_csv = "" 
-function testloop(){
+function insertRows(){
     if( y<data.length){
         const start = performance.now();
         var row = data[y]
@@ -43,7 +43,7 @@ function testloop(){
             console.log(elapsed)
             created_csv += elapsed + ", query: " + y + "\n" 
             y++;
-            testloop()
+            insertRows()
         });  
     }
     else{
@@ -74,7 +74,7 @@ con.connect(async function (err) {
     });
 
     //inserts every row of the csv file into the database. currently 546000 lines.
-    testloop()
+    insertRows()
     
 });
 
