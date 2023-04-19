@@ -72,10 +72,8 @@ con.connect(async function (err) {
         if (err) throw err;
         console.log("Database table created!")
     });
-
-    //inserts every row of the csv file into the database. currently 546000 lines.
-    insertRows()
-    
+    //inserts every row of the csv file into the database. approximately 546000 lines.
+    insertRows() 
 });
 
 
