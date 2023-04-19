@@ -31,14 +31,14 @@ var arrQ = []
 var created_csv = "" 
 function insertRows(){
     if( y<data.length){
-        const start = performance.now();
         var row = data[y]
         var sql= "INSERT INTO test (data_as_of, start_date, end_date, group_, year_, month_, state_, condition_group, condition_, ICD10_codes, age_Group, COVID_19_deaths, number_of_mentions, flag_) VALUES ('"+row[0]+"', '"+row[1]+"', '"+row[2]+"', '"+row[3]+"', '"+row[4]+"', '"+row[5]+"', '"+row[6]+"', '"+row[7]+"', '"+row[8]+"', '"+row[9]+"', '"+row[10]+"', '"+row[11]+"', '"+row[12]+"', '"+row[13]+"')";
+        const start = performance.now();
         con.query(sql, function (err, result) {
             if (err) throw err;
+            const end = performance.now();
             console.log("insert "+i+" done");
             i++;
-            const end = performance.now();
             const elapsed = end - start;
             console.log(elapsed)
             created_csv += elapsed + ", query: " + y + "\n" 
