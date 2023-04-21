@@ -59,7 +59,7 @@ var y = 0
 var i = 0
 var created_csv = "" 
 
-async function testloop(){
+async function loopInsert(){
     if( y<data.length){
         const start = performance.now();
 
@@ -119,7 +119,7 @@ async function connectToDB() {
     }
     
     for( p=0;p<data.length; p++){
-        await testloop();
+        await loopInsert();
     }
     
     //const docs = await collection.find({}).toArray();
