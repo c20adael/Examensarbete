@@ -16,15 +16,6 @@ const collection = db.collection(collName);
 const fs = require('fs');
 const fs2 = require('fs');
 
-const csvString = fs.readFileSync('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/LessRowsTest.csv', 'utf8');
-
-//
-// removing the first row in the document.
-const rows = csvString.split('\n');
-const data = rows.map(function (row) {
-  return row.split(',');
-});
-const firstElement = data.shift();
 
 // sets up the file that will save the data.
 var csvFile = "";
