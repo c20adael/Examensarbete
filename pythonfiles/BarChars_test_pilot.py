@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 def exampleBarChars():
     # Read your data from file
-    file = "merged_ms_MYSQL_mongoDB_test_pilot.txt"
-    df = pd.read_csv(file, sep=",", header=None, names=['ms_MySQL', 'ms_mongoDB'])
+    file = "Pilotstudie_Data/merged_SELECT_MYSQL_mongoDB.txt"
+    df = pd.read_csv(file, sep=",", header=None, names=['SELECT_MySQL', 'SELECT_MongoDB'])
 
     # width of the bars
     barWidth = 0.6
@@ -33,18 +33,18 @@ def exampleBarChars():
 
     # Interval cap size
     intervalCapsize = 7
-
+    plt.ylim(0, 10)
     # Plot bars
     plt.bar(barsOrder, barsData, color=colors, edgecolor='black', width=barWidth,
-            yerr=barsInterval, capsize=7, alpha=Opacity, bottom=intervalCapsize)
+            yerr=barsInterval, capsize=7, alpha=Opacity, bottom=0)
 
     # Put a tick on the x-axis undex each bar and label it with column name
     plt.xticks(range(len(df.columns)), df.columns)
 
     plt.ylabel('Mean ms')
     # plt.xlabel('Browsers')
-    plt.title('Load-Time Means Comparison (With Std)')
-    plt.savefig("STD_MySQL_MongoDB_pilot.png")
+    plt.title('SELECT-Time Means Comparison (With Std)')
+    plt.savefig("Select_Means_STD.png")
     plt.show()
 
 
