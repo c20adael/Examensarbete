@@ -34,17 +34,23 @@ async function selectState(){
     })
     arrayState = arrayState.map(row => row.state_);
     arrayState = arrayState[0];
-    console.log(arrayState);
-    selectQuery(arrayState);
+    //console.log(arrayState);
+    await selectQuery(arrayState);
 }
 
+
+async function query(value){
+  var collectedResult = collection.find({state_: value});
+  return collectedResult;
+}
 // selectQuery uses the value passed in to do another select query that tries to find all
 // The documents where the value exists. This is timed.
 // The Result from the select is then turned into an array.
 // Information is saved to a var and then the process is repeated.
 async function selectQuery(arrayState){
     const start = performance.now();
-    var collectedResult = await collection.find({state_: arrayState})
+    //var collectedResult = await collection.find({state_: arrayState});
+    var collectedResult = await query(arrayState);
     const end = performance.now();
     const elapsed = end - start;
     var objectArray = await collectedResult.toArray(function(err, result) {
@@ -65,13 +71,13 @@ async function selectQuery(arrayState){
 // selectLooper runs the function selectState a sertain amount of times.
 // Or exits the connection.
 var counter = 1;
-var loopAmount = 1000;
+var loopAmount = 10000;
 function selectLooper(){
     if (loopAmount > 0){
         selectState();
         loopAmount--;
     }else{
-        fs2.writeFileSync('old_test_data/test_data_mongoDB_SELECT', csvFile);
+        fs2.writeFileSync('Pilotstudie_data/SELECT_data_MongoDB.txt', csvFile);
         client.close();
     }
 }
