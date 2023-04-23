@@ -15,8 +15,24 @@ const fs2 = require('fs')
 
 const csvString = fs.readFileSync('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/LessRowsTest.csv', 'utf8');
 
+function replaceAt(index, replacement, str) {
+  return str.substring(0, index) + replacement + str.substring(index + replacement.length);
+}
+
+
 const rows = csvString.split('\n');
 const data = rows.map(function (row) {
+  if(row.includes("\"")){
+    var foundquote = false;
+    for(i=0; i<row.length; i++){
+        
+        if(row.charAt(i)== "\""){
+            foundquote =  !foundquote;
+        }
+        if(foundquote == true && row.charAt(i)== ","){
+            row = replaceAt(i, ";", row);
+        }
+    }}
   return row.split(',');
 });
 const firstElement = data.shift();
@@ -27,14 +43,15 @@ var created_csv = ""
 
 async function loopInsert(){
     if( y<data.length){
-        const start = performance.now();
+        
 
         var row = data[y]
         const document = {data_as_of: row[0], start_date: row[1], end_date: row[2], group_: row[3], year_: row[4], month_: row[5], state_: row[6], condition_group: row[7], condition_: row[8], ICD10_codes: row[9], age_Group: row[10], COVID_19_deaths: row[11], number_of_mentions: row[12], flag_: row[13]}; 
+        const start = performance.now();
         await collection.insertOne(document)
+        const end = performance.now();
         console.log("insert "+i+" done");
         i++;    
-        const end = performance.now();
         const elapsed = end - start;
         console.log(elapsed)
         created_csv += elapsed + ", query: " + (y+1) + "\n" 
@@ -92,7 +109,7 @@ async function connectToDB() {
     //console.log('Found the following documents:', docs);
 
     // Close the connection
-    fs2.writeFileSync('Pilotstudie_data/INSERT_data_MongoDB', created_csv);
+    fs2.writeFileSync('Pilotstudie_data/INSERT_data_MongoDB.txt', created_csv);
     await client.close();
   } catch (err) {
     console.log('Error connecting to MongoDB:', err);

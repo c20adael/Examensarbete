@@ -45,13 +45,13 @@ function selectQuery(state){
     })
 }
 var counter = 1;
-var loopAmount = 1000;
+var loopAmount = 10000;
 function selectLooper(){
     if (loopAmount > 0){
         selectState();
         loopAmount--
     }else{
-        fs.writeFileSync('old_test_data/test_data_MySQL_SELECT', csvFile);
+        fs.writeFileSync('Pilotstudie_data/SELECT_data_MySQL.txt', csvFile);
         con.end();
     }
 }

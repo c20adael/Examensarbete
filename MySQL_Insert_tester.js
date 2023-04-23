@@ -15,9 +15,23 @@ const fs2 = require('fs')
 // reads a file
 const csvString = fs.readFileSync('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/LessRowsTest.csv', 'utf8');
 
+function replaceAt(index, replacement, str) {
+    return str.substring(0, index) + replacement + str.substring(index + replacement.length);
+  }
 // formatting the file in to two aarrays. removing the first line in the file
 const rows = csvString.split('\n');
 const data = rows.map(function (row) {
+    if(row.includes("\"")){
+        var foundquote = false;
+        for(i=0; i<row.length; i++){
+            
+            if(row.charAt(i)== "\""){
+                foundquote =  !foundquote;
+            }
+            if(foundquote == true && row.charAt(i)== ","){
+                row = replaceAt(i, ";", row);
+            }
+        }}
   return row.split(',');
 });
 const firstElement = data.shift();
@@ -47,7 +61,7 @@ function insertRows(){
         });  
     }
     else{
-        fs2.writeFileSync('Pilotstudie_data/INSERT_data_MySQL', created_csv);
+        fs2.writeFileSync('Pilotstudie_data/INSERT_data_MySQL.txt', created_csv);
         con.end()
     }
 }

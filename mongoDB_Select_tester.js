@@ -49,19 +49,16 @@ async function query(value){
 // Information is saved to a var and then the process is repeated.
 async function selectQuery(arrayState){
     const start = performance.now();
-    //var collectedResult = await collection.find({state_: arrayState});
     var collectedResult = await query(arrayState);
-    const end = performance.now();
-    const elapsed = end - start;
+    const end = performance.now(); 
     var objectArray = await collectedResult.toArray(function(err, result) {
         if (err) {
             console.log('Error selecting random document:', err);
             return;
           }
-          
     })
+    const elapsed = end - start;
     csvFile += arrayState +", "+ elapsed + ", "+ objectArray.length +", \n";
-    //console.log(objectArray)
     console.log("select "+counter+" done");
     counter++;
     selectLooper();
