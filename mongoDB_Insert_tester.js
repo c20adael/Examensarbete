@@ -37,7 +37,7 @@ async function loopInsert(){
         const end = performance.now();
         const elapsed = end - start;
         console.log(elapsed)
-        created_csv += elapsed + ", query: " + y + "\n" 
+        created_csv += elapsed + ", query: " + (y+1) + "\n" 
         y++;
           
     }
@@ -92,7 +92,7 @@ async function connectToDB() {
     //console.log('Found the following documents:', docs);
 
     // Close the connection
-    fs2.writeFileSync('old_test_data/test_data_mongoDB', created_csv);
+    fs2.writeFileSync('Pilotstudie_data/INSERT_data_MongoDB', created_csv);
     await client.close();
   } catch (err) {
     console.log('Error connecting to MongoDB:', err);

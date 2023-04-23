@@ -41,13 +41,13 @@ function insertRows(){
             i++;
             const elapsed = end - start;
             console.log(elapsed)
-            created_csv += elapsed + ", query: " + y + "\n" 
+            created_csv += elapsed + ", query: " + (y+1) + "\n" 
             y++;
             insertRows()
         });  
     }
     else{
-        fs2.writeFileSync('old_test_data/test_data_MYSQL', created_csv);
+        fs2.writeFileSync('Pilotstudie_data/INSERT_data_MySQL', created_csv);
         con.end()
     }
 }
