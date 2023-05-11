@@ -41,7 +41,13 @@ async function selectState(){
 
 async function query(value){
   var collectedResult = collection.find({state_: value});
-  return collectedResult;
+  var objectArray = await collectedResult.toArray(function(err, result) {
+    if (err) {
+        console.log('Error selecting random document:', err);
+        return;
+      }
+})
+  return objectArray;
 }
 // selectQuery uses the value passed in to do another select query that tries to find all
 // The documents where the value exists. This is timed.
@@ -51,14 +57,8 @@ async function selectQuery(arrayState){
     const start = performance.now();
     var collectedResult = await query(arrayState);
     const end = performance.now(); 
-    var objectArray = await collectedResult.toArray(function(err, result) {
-        if (err) {
-            console.log('Error selecting random document:', err);
-            return;
-          }
-    })
     const elapsed = end - start;
-    csvFile += arrayState +", "+ elapsed + ", "+ objectArray.length +", \n";
+    csvFile += arrayState +", "+ elapsed + ", "+ collectedResult.length +", \n";
     console.log("select "+counter+" done");
     counter++;
     selectLooper();
