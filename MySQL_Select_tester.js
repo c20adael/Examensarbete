@@ -24,10 +24,11 @@ function selectState(){
 
 // The selectQuery function is primed by the previous function that gives it the parameter.
 // It then searches for the rows with said parameter
-var queryResults = [];
+//var queryResults = [];
 var csvFile = "";
 function selectQuery(state){
-    console.log(state);
+    var queryResults = [];
+    //console.log(state);
     csvFile += state +", ";
     const start = performance.now();
     var selectAllQuery = "SELECT * FROM test WHERE state_ = '"+state+"'";
@@ -39,8 +40,8 @@ function selectQuery(state){
         queryResults[counter] = result;
         console.log("select "+counter+" done");
         counter++;
-        console.log(elapsed);
-        console.log(result.length);
+        //console.log(elapsed);
+        //console.log(result.length);
         selectLooper();
     })
 }
