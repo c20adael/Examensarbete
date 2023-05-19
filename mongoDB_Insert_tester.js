@@ -13,7 +13,7 @@ const collection = db.collection(collName);
 const fs = require('fs');
 const fs2 = require('fs')
 
-const csvString = fs.readFileSync('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/LessRowsTest.csv', 'utf8');
+const csvString = fs.readFileSync('C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Live_testfile_2023_05_19.csv', 'utf8');
 
 function replaceAt(index, replacement, str) {
   return str.substring(0, index) + replacement + str.substring(index + replacement.length);
