@@ -16,6 +16,23 @@ const collection = db.collection(collName);
 const fs = require('fs');
 const fs2 = require('fs');
 
+const csvString = fs.readFileSync('Pilotstudie_data/SELECT_data_MySQL.txt', 'utf8');
+
+
+const rows = csvString.split('\n');
+const row_data = rows.map(function (row) {
+  return row.split(',');
+});
+
+var test_array = []
+for(i=0; i<rows.length; i++){
+  var rad = row_data[i]
+  console.log(rad[0])
+  test_array[i] = rad[0];
+}
+console.log(test_array)
+
+
 
 // sets up the file that will save the data.
 var csvFile = "";
@@ -23,8 +40,9 @@ var csvFile = "";
 // The function below selects a random document in the mongoDB database collection.
 // After the select is done map is used to access the state in the USA that the document has stored.
 // Then the function "selectQuery" gets passed the value.
+var search_Word_iteratior = 0;
 async function selectState(){
-    var state = await collection.aggregate([{ $sample: { size: 1 } }]);
+    /* var state = await collection.aggregate([{ $sample: { size: 1 } }]);
     var arrayState = await state.toArray(function(err, result) {
         if (err) {
             console.log('Error selecting random document:', err);
@@ -34,7 +52,10 @@ async function selectState(){
     })
     arrayState = arrayState.map(row => row.state_);
     arrayState = arrayState[0];
-    //console.log(arrayState);
+    //console.log(arrayState); */
+
+  var arrayState = test_array[search_Word_iteratior];
+  search_Word_iteratior++;
     await selectQuery(arrayState);
 }
 
